@@ -1,0 +1,13 @@
+#.travis.yml
+
+language: node_js
+node_js:
+  - "6.11"
+
+before_script:
+  - npm install
+
+script:
+  - npm run ng -- build --prod
+  - npm run ng -- test --single-run
+  - npm run ng -- e2e
