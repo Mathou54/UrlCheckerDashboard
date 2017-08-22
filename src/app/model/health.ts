@@ -1,3 +1,3 @@
 export class Health {
-  status: string;
+	status: string;
 }
