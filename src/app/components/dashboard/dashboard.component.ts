@@ -16,7 +16,11 @@ export class DashboardComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.services = [new Service("test", "localhost:8080/health")];
+		this.services = [{
+			name: 'test',
+			url: 'localhost:8080/health',
+			health: null
+		}];
 	}
 
 	private startUpdateServiceStatus(): void {

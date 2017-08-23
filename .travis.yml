@@ -18,7 +18,6 @@ before_install:
 
 script:
   - npm test -- --single-run
-  - npm run e2e
 
 after_success:
     - npm run build -- --aot --prod
