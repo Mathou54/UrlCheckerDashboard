@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Mathou54/UrlCheckerDashboard.svg?branch=master)](https://travis-ci.org/Mathou54/UrlCheckerDashboard)
 
+Project hosted at: https://urlcheckerdashboard.firebaseapp.com.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
 ## Development server
