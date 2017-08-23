@@ -1,0 +1,39 @@
+import {Component, OnInit} from '@angular/core';
+import {Service} from "../../model/service";
+import {ServiceService} from "../../services/service.service";
+import {Health} from "../../model/health";
+
+@Component({
+	selector: 'app-dashboard',
+	templateUrl: './dashboard.component.html',
+	styleUrls: ['./dashboard.component.css']
+})
+export class DashboardComponent implements OnInit {
+
+	services: Service[];
+
+	constructor(private service: ServiceService) {
+	}
+
+	ngOnInit() {
+		this.services = [{
+			name: 'test',
+			url: 'localhost:8080/health',
+			health: null
+		}];
+	}
+
+	private startUpdateServiceStatus(): void {
+		setTimeout(this.updateServicesStatus, 10000);
+	}
+
+	private updateServicesStatus(): void {
+		this.services.forEach((service: Service) => {
+			this.service.updateStatus(service)
+				.subscribe((health: Health) => {
+					service.health = health;
+				});
+		});
+	}
+
+}
