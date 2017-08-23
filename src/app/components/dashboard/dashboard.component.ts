@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
 				.subscribe((health: Health) => {
 					service.health = health;
 				});
-		})
+		});
 	}
 
 }
