@@ -6,6 +6,8 @@ import {Health} from "../model/health";
 
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
+import "rxjs/add/observable/of";
 
 @Injectable()
 export class ServiceService {
@@ -15,8 +17,8 @@ export class ServiceService {
 
 	updateStatus(service: Service): Observable<Health> {
 		return this.http.get(service.url)
-			.catch((error: any) => Observable.throw(error.json().error || 'Server error'))
-			.map((res: Response) => res.json() as Health);
+			.map((res: Response) => res.json() as Health)
+			.catch((error: any) => Observable.of({status: error.status}));
 	}
 
 }

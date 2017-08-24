@@ -13,6 +13,11 @@ export class Service {
 	}
 
 	toString(): string {
-		return this.name + SEPARATOR + this.url + SEPARATOR + this.health.status;
+		let str = this.name + SEPARATOR + this.url;
+		if (this.health) {
+			return str + SEPARATOR + this.health.status;
+		} else {
+			return str;
+		}
 	}
 }
