@@ -20,6 +20,30 @@ export class DashboardComponent implements OnInit {
 			name: 'test',
 			url: 'http://localhost:4200/health',
 			health: null
+		}, {
+			name: 'test',
+			url: 'http://localhost:4200/health',
+			health: null
+		}, {
+			name: 'test',
+			url: 'http://localhost:4200/health',
+			health: null
+		}, {
+			name: 'test',
+			url: 'http://localhost:4200/health',
+			health: null
+		}, {
+			name: 'test',
+			url: 'http://localhost:4200/health',
+			health: null
+		}, {
+			name: 'test',
+			url: 'http://localhost:4200/health',
+			health: null
+		}, {
+			name: 'test',
+			url: 'http://localhost:4200/health',
+			health: null
 		}];
 
 		this.startUpdateServiceStatus();

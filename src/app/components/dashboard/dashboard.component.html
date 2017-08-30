@@ -1,5 +1,11 @@
-<div class="dashboard">
-	<ul>
-		<li *ngFor="let service of services">{{display(service)}}</li>
-	</ul>
+<div class="dashboard row">
+	<div class="col-md-3" *ngFor="let service of services">
+		<div class="card" [ngClass]="[service?.health?.status + '' || '']">
+			<div class="card-body">
+				<h4 class="card-title text-center"
+					[title]="service?.url">{{service?.name}}</h4>
+				<p class="card-text">{{service?.health?.status}}</p>
+			</div>
+		</div>
+	</div>
 </div>
