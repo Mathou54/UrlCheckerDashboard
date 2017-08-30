@@ -17,23 +17,64 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit() {
 		this.services = [{
-			name: 'test',
-			url: 'localhost:8080/health',
+			name: 'Up',
+			url: 'assets/services/health-up.json',
+			health: null
+		}, {
+			name: 'Down',
+			url: 'assets/services/health-down.json',
+			health: null
+		}, {
+			name: 'Not exist',
+			url: 'assets/services/health-not-exist.json',
+			health: null
+		}, {
+			name: 'Up',
+			url: 'assets/services/health-up.json',
+			health: null
+		}, {
+			name: 'Down',
+			url: 'assets/services/health-down.json',
+			health: null
+		}, {
+			name: 'Not exist',
+			url: 'assets/services/health-not-exist.json',
+			health: null
+		}, {
+			name: 'Up',
+			url: 'assets/services/health-up.json',
+			health: null
+		}, {
+			name: 'Down',
+			url: 'assets/services/health-down.json',
+			health: null
+		}, {
+			name: 'Not exist',
+			url: 'assets/services/health-not-exist.json',
 			health: null
 		}];
+
+		this.startUpdateServiceStatus();
+	}
+
+	public display(service: Service): string {
+		let str = service.name + ' ' + service.url;
+		if (service.health) {
+			return str + ' ' + service.health.status;
+		} else {
+			return str;
+		}
 	}
 
 	private startUpdateServiceStatus(): void {
-		setTimeout(this.updateServicesStatus, 10000);
-	}
-
-	private updateServicesStatus(): void {
-		this.services.forEach((service: Service) => {
-			this.service.updateStatus(service)
-				.subscribe((health: Health) => {
-					service.health = health;
-				});
-		});
+		setTimeout(() => {
+			this.services.forEach((service: Service) => {
+				this.service.updateStatus(service)
+					.subscribe((health: Health) => {
+						service.health = health;
+					});
+			});
+		}, 10000);
 	}
 
 }
