@@ -4,7 +4,7 @@
 			<div class="card-body">
 				<h4 class="card-title text-center"
 					[title]="service?.url">{{service?.name}}</h4>
-				<p class="card-text">{{service?.health?.status}}</p>
+				<p class="card-text">Status: {{service?.health?.status || 'Unknown'}}</p>
 			</div>
 		</div>
 	</div>

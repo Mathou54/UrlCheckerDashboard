@@ -17,16 +17,16 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit() {
 		this.services = [{
-			name: 'test',
-			url: 'http://localhost:4200/health',
+			name: 'Up',
+			url: 'assets/services/health-up.json',
 			health: null
 		}, {
-			name: 'test',
-			url: 'http://localhost:4200/health',
+			name: 'Down',
+			url: 'assets/services/health-down.json',
 			health: null
 		}, {
-			name: 'test',
-			url: 'http://localhost:4200/health',
+			name: 'Not exist',
+			url: 'assets/services/health-not-exist.json',
 			health: null
 		}, {
 			name: 'test',
