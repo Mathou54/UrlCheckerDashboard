@@ -1,4 +1,4 @@
-<div class="card" [ngClass]="[service?.health?.status + '' || '']">
+<div class="card" [ngClass]="['card-' + service?.health?.status || '']">
 	<div class="card-body">
 		<h4 class="card-title text-center"
 			[title]="service?.url">{{service?.name}}</h4>
