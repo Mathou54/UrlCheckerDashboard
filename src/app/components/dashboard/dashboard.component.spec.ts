@@ -4,6 +4,7 @@ import {DashboardComponent} from './dashboard.component';
 import {ServiceService} from "../../services/service.service";
 
 import 'rxjs/add/observable/of';
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('DashboardComponent', () => {
 	let component: DashboardComponent;
@@ -18,6 +19,7 @@ describe('DashboardComponent', () => {
 		spyOn(mockServiceService, 'updateStatus');
 
 		TestBed.configureTestingModule({
+			schemas: [CUSTOM_ELEMENTS_SCHEMA],
 			declarations: [DashboardComponent],
 			providers: [{provide: ServiceService, useValue: mockServiceService}]
 		})

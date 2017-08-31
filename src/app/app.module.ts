@@ -5,11 +5,13 @@ import {AppComponent} from './app.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {ServiceService} from "./services/service.service";
 import {HttpModule} from "@angular/http";
+import {CardComponent} from './components/card/card.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		DashboardComponent
+		DashboardComponent,
+		CardComponent
 	],
 	imports: [
 		BrowserModule,
