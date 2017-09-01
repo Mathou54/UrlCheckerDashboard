@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Service} from "../../model/service";
-import {ServiceService} from "../../services/service.service";
-import {Health} from "../../model/health";
+import {Service} from '../../model/service';
+import {ServiceService} from '../../services/service.service';
+import {Health} from '../../model/health';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
 	selector: 'app-dashboard',
@@ -12,10 +13,17 @@ export class DashboardComponent implements OnInit {
 
 	services: Service[];
 
-	constructor(private service: ServiceService) {
+	controls: FormGroup;
+
+	constructor(private fb: FormBuilder,
+	            private service: ServiceService) {
 	}
 
 	ngOnInit() {
+		this.controls = this.fb.group({
+			'refreshTime': [10]
+		});
+
 		this.services = [{
 			name: 'Up',
 			url: 'assets/services/health-up.json',
@@ -74,7 +82,7 @@ export class DashboardComponent implements OnInit {
 						service.health = health;
 					});
 			});
-		}, 10000);
+		}, 1000 * this.controls.get('refreshTime').value);
 	}
 
 }

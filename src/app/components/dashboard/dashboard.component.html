@@ -1,5 +1,17 @@
-<div class="dashboard row">
-	<div class="col-md-3 block" *ngFor="let service of services">
-		<app-card [service]="service"></app-card>
+<div class="dashboard">
+	<div class="row">
+		<div class="col-md-6">
+			<form [formGroup]="controls">
+				<div class="form-group form-inline">
+					<label for="refresh-time">Refresh time (in seconds):</label>
+					<input id="refresh-time" type="number" class="form-control" formControlName="refreshTime">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 block" *ngFor="let service of services">
+			<app-card [service]="service"></app-card>
+		</div>
 	</div>
 </div>
