@@ -1,10 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DashboardComponent} from './dashboard.component';
-import {ServiceService} from "../../services/service.service";
+import {ServiceService} from '../../services/service.service';
 
 import 'rxjs/add/observable/of';
-import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('DashboardComponent', () => {
 	let component: DashboardComponent;
@@ -20,6 +21,7 @@ describe('DashboardComponent', () => {
 
 		TestBed.configureTestingModule({
 			schemas: [CUSTOM_ELEMENTS_SCHEMA],
+			imports: [ReactiveFormsModule],
 			declarations: [DashboardComponent],
 			providers: [{provide: ServiceService, useValue: mockServiceService}]
 		})
