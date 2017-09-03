@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Service} from "../../model/service";
-import {ServiceService} from "../../services/service.service";
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/observable/of";
+import {Service} from '../../model/service';
+import {ServiceService} from '../../services/service.service';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -32,6 +32,10 @@ export class DashboardComponent implements OnInit {
 		this.getServices();
 	}
 
+	isRefreshing(): boolean {
+		return this.refreshCount > 0;
+	}
+
 	private startUpdateServiceStatus(): void {
 		setTimeout(() => {
 
@@ -51,10 +55,6 @@ export class DashboardComponent implements OnInit {
 
 			this.startUpdateServiceStatus();
 		}, 1000 * this.controls.get('refreshTime').value);
-	}
-
-	private isRefreshing(): boolean {
-		return this.refreshCount > 0;
 	}
 
 	private getServices() {

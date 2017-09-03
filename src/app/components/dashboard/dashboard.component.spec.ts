@@ -15,9 +15,12 @@ describe('DashboardComponent', () => {
 
 		let mockServiceService = {
 			updateStatus: function () {
+			},
+			get: function () {
 			}
 		};
 		spyOn(mockServiceService, 'updateStatus');
+		spyOn(mockServiceService, 'get');
 
 		TestBed.configureTestingModule({
 			schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -31,6 +34,8 @@ describe('DashboardComponent', () => {
 	beforeEach(() => {
 		fixture = TestBed.createComponent(DashboardComponent);
 		component = fixture.componentInstance;
+
+		component.ngOnInit();
 		fixture.detectChanges();
 	});
 
