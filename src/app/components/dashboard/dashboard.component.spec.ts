@@ -13,7 +13,7 @@ describe('DashboardComponent', () => {
 
 	beforeEach(async(() => {
 
-		let mockServiceService = {
+		const mockServiceService = {
 			updateStatus: function () {
 			},
 			get: function () {
