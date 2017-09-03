@@ -1,0 +1,47 @@
+[
+	{
+		"name": "Up",
+		"url": "assets/services/health-up.json",
+		"health": null
+	},
+	{
+		"name": "Down",
+		"url": "assets/services/health-down.json",
+		"health": null
+	},
+	{
+		"name": "Not exist",
+		"url": "assets/services/health-not-exist.json",
+		"health": null
+	},
+	{
+		"name": "Up",
+		"url": "assets/services/health-up.json",
+		"health": null
+	},
+	{
+		"name": "Down",
+		"url": "assets/services/health-down.json",
+		"health": null
+	},
+	{
+		"name": "Not exist",
+		"url": "assets/services/health-not-exist.json",
+		"health": null
+	},
+	{
+		"name": "Up",
+		"url": "assets/services/health-up.json",
+		"health": null
+	},
+	{
+		"name": "Down",
+		"url": "assets/services/health-down.json",
+		"health": null
+	},
+	{
+		"name": "Not exist",
+		"url": "assets/services/health-not-exist.json",
+		"health": null
+	}
+]

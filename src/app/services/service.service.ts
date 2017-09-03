@@ -21,4 +21,10 @@ export class ServiceService {
 			.catch((error: any) => Observable.of({status: error.status}));
 	}
 
+	get(): Observable<Service[]> {
+		return this.http.get('assets/services.json')
+			.map((res: Response) => res.json() as Service[])
+			.catch(error => Observable.throw(error))
+	}
+
 }
