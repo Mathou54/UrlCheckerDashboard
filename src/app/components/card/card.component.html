@@ -1,0 +1,8 @@
+<div class="card" [ngClass]="['card-' + (service?.health | async)?.status || '']">
+	<div class="card-body">
+		<h4 class="card-title text-center"
+			[title]="service?.url">{{service?.name}}</h4>
+		<p class="card-text">Status: {{(service?.health | async)?.status || 'Unknown'}}</p>
+		<p class="card-text"><a [href]="service?.url">{{service?.url}}</a></p>
+	</div>
+</div>

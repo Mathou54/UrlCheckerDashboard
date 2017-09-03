@@ -1,0 +1,27 @@
+.card {
+	border-width: 2px;
+}
+
+.card-404 {
+	border-color: red;
+}
+
+.card-404 .card-text {
+	color: red;
+}
+
+.card-DOWN {
+	border-color: darkred;
+}
+
+.card-DOWN .card-text {
+	color: darkred;
+}
+
+.card-UP {
+	border-color: green;
+}
+
+.card-UP .card-text {
+	color: green;
+}
