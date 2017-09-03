@@ -5,6 +5,8 @@
 				<div class="form-group form-inline">
 					<label for="refresh-time">Refresh time (in seconds):</label>
 					<input id="refresh-time" type="number" class="form-control" formControlName="refreshTime">
+					<div class="refresh" *ngIf="isRefreshing()"><i class="fa fa-refresh fa-spin" aria-hidden="true"></i>
+					</div>
 				</div>
 			</form>
 		</div>

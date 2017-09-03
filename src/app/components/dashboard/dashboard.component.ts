@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Service} from '../../model/service';
 import {ServiceService} from '../../services/service.service';
 import {Health} from '../../model/health';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
 	selector: 'app-dashboard',
@@ -15,13 +15,15 @@ export class DashboardComponent implements OnInit {
 
 	controls: FormGroup;
 
+	refreshCount: number;
+
 	constructor(private fb: FormBuilder,
 	            private service: ServiceService) {
 	}
 
 	ngOnInit() {
 		this.controls = this.fb.group({
-			'refreshTime': [10]
+			'refreshTime': [10, Validators.min(1)]
 		});
 
 		this.services = [{
@@ -76,13 +78,24 @@ export class DashboardComponent implements OnInit {
 
 	private startUpdateServiceStatus(): void {
 		setTimeout(() => {
+
+			this.refreshCount = this.services.length;
+
 			this.services.forEach((service: Service) => {
 				this.service.updateStatus(service)
 					.subscribe((health: Health) => {
 						service.health = health;
+
+						this.refreshCount--;
 					});
 			});
+
+			this.startUpdateServiceStatus();
 		}, 1000 * this.controls.get('refreshTime').value);
+	}
+
+	private isRefreshing(): boolean {
+		return this.refreshCount > 0;
 	}
 
 }

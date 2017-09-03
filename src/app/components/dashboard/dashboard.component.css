@@ -1,3 +1,15 @@
 .dashboard .block {
 	margin-bottom: 2em;
 }
+
+.dashboard .form-control {
+	margin-left: 1em;
+}
+
+.dashboard .refresh {
+	margin-left: 1em;
+}
+
+input.ng-invalid {
+	border-color: red;
+}
