@@ -35,16 +35,19 @@ export class DashboardComponent implements OnInit {
 	private startUpdateServiceStatus(): void {
 		setTimeout(() => {
 
-			this.refreshCount = this.services.length;
+			this.services = this.services.map((services: Service[]) => {
+					this.refreshCount = services.length;
 
-			this.services.map((services: Service[]) => {
-				services.map((service: Service) => {
-					service.health = this.service.updateStatus(service);
-					this.refreshCount--;
-					return service;
-				})
-			).subscribe();
-			});
+					services = services.map((service: Service) => {
+						service.health = this.service.updateStatus(service);
+						this.refreshCount--;
+						return service;
+					});
+
+
+					return services;
+				}
+			);
 
 			this.startUpdateServiceStatus();
 		}, 1000 * this.controls.get('refreshTime').value);
