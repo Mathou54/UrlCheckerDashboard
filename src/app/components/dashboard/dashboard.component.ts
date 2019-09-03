@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Observable, of} from 'rxjs';
 import {Service} from '../../model/service';
 import {ServiceService} from '../../services/service.service';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {map} from 'rxjs/operators';
 
 @Component({
 	selector: 'app-dashboard',
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 	refreshCount: number;
 
 	constructor(private fb: FormBuilder,
-	            private service: ServiceService) {
+				private service: ServiceService) {
 	}
 
 	ngOnInit() {
@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
 			'refreshTime': [10, Validators.min(1)]
 		});
 
-		this.services = Observable.of([]);
+		this.services = of([]);
 
 		this.getServices();
 	}
@@ -39,18 +39,20 @@ export class DashboardComponent implements OnInit {
 	private startUpdateServiceStatus(): void {
 		setTimeout(() => {
 
-			this.services = this.services.map((services: Service[]) => {
-					this.refreshCount = services.length;
+			this.services = this.services.pipe(
+				map((services: Service[]) => {
+						this.refreshCount = services.length;
 
-					services = services.map((service: Service) => {
-						service.health = this.service.updateStatus(service);
-						this.refreshCount--;
-						return service;
-					});
+						services = services.map((service: Service) => {
+							service.health = this.service.updateStatus(service);
+							this.refreshCount--;
+							return service;
+						});
 
 
-					return services;
-				}
+						return services;
+					}
+				)
 			);
 
 			this.startUpdateServiceStatus();

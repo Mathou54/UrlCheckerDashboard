@@ -1,30 +1,30 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from "@angular/http";
-import {Service} from "../model/service";
-import {Observable} from "rxjs/Observable";
-import {Health} from "../model/health";
+import {HttpClient} from '@angular/common/http';
 
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/catch";
-import "rxjs/add/observable/throw";
-import "rxjs/add/observable/of";
+import {Observable, of, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+
+import {Service} from '../model/service';
+import {Health} from '../model/health';
 
 @Injectable()
 export class ServiceService {
 
-	constructor(private http: Http) {
+	constructor(private http: HttpClient) {
 	}
 
 	updateStatus(service: Service): Observable<Health> {
-		return this.http.get(service.url)
-			.map((res: Response) => res.json() as Health)
-			.catch((error: any) => Observable.of({status: error.status}));
+		return this.http.get<Health>(service.url)
+			.pipe(
+				catchError((error: any) => of({status: error.status}))
+			);
 	}
 
 	get(): Observable<Service[]> {
-		return this.http.get('assets/services.json')
-			.map((res: Response) => res.json() as Service[])
-			.catch(error => Observable.throw(error))
+		return this.http.get<Service[]>('assets/services.json')
+			.pipe(
+				catchError(error => throwError(error))
+			);
 	}
 
 }

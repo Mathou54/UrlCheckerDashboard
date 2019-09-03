@@ -16,6 +16,7 @@
 *.launch
 .settings/
 *.sublime-workspace
+UrlCheckerDashboard.iml
 
 # IDE - VSCode
 .vscode/*

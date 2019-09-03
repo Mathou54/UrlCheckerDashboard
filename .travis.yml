@@ -1,15 +1,10 @@
-sudo: required
-dist: trusty
-
 language: node_js
-node_js: "7"
 
 apt:
   sources:
     - google-chrome
   packages:
     - google-chrome-stable
-    - google-chrome-beta
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -17,15 +12,15 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - npm test -- --single-run
+	- npm test
 
 after_success:
-    - npm run build -- --aot --prod
+	- npm run build
 
 deploy:
   provider: script
   skip_cleanup: true
   script:
-    - npm run deploy -- --token=$FIREBASE_KEY
+	  npm run deploy -- --token=$FIREBASE_KEY
   on:
     branch: master

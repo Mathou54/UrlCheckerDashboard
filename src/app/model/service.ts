@@ -1,5 +1,5 @@
-import {Health} from "./health";
-import {Observable} from "rxjs/Observable";
+import {Health} from './health';
+import {Observable} from 'rxjs';
 
 export class Service {
 	name: string;
