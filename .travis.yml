@@ -17,10 +17,10 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - npm test -- --single-run
+	- npm test
 
 after_success:
-    - npm run build -- --aot --prod
+	- npm run build
 
 deploy:
   provider: script

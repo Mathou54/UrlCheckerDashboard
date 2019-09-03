@@ -1,12 +1,12 @@
 import {inject, TestBed} from '@angular/core/testing';
+import {HttpClient} from '@angular/common/http';
 
 import {ServiceService} from './service.service';
-import {Http} from "@angular/http";
 
 describe('ServiceService', () => {
 
 
-	let mockHttp = {
+	const mockHttp = {
 		get: function () {
 		}
 	};
@@ -24,7 +24,7 @@ describe('ServiceService', () => {
 
 		TestBed.configureTestingModule({
 			providers: [ServiceService,
-				{provide: Http, useValue: mockHttp}]
+				{provide: HttpClient, useValue: mockHttp}]
 		});
 	});
 
