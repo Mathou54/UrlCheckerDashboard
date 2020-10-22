@@ -1,6 +1,6 @@
 # UrlCheckerDashboard
 
-[![Build Status](https://travis-ci.org/Mathou54/UrlCheckerDashboard.svg?branch=master)](https://travis-ci.org/Mathou54/UrlCheckerDashboard)
+![Node CI](https://github.com/Mathou54/UrlCheckerDashboard/workflows/Node%20CI/badge.svg)
 
 Project hosted at: https://urlcheckerdashboard.firebaseapp.com.
 
