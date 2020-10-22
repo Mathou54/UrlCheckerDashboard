@@ -31,8 +31,8 @@ jobs:
                 run: npm run build
             -   name: npm test
                 run: npm test
-            -   name: npm e2e
-                run: npm run e2e
+            #            -   name: npm e2e
+            #                run: npm run e2e
 
             -   name: deploy to firebase
                 if: github.ref == 'refs/heads/master' && matrix.node-version == '12.x'
