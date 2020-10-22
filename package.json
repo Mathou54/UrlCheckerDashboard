@@ -8,7 +8,7 @@
 		"build": "ng build --prod",
 		"build:dev": "ng build",
 		"build:pages": "ng build --prod --output-path docs --base-href UrlCheckerDashboard",
-		"test": "ng test --watch=false",
+		"test": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
 		"test:dev": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e",
