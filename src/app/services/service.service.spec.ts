@@ -8,6 +8,7 @@ describe('ServiceService', () => {
 
 	const mockHttp = {
 		get: function () {
+			return null;
 		}
 	};
 
