@@ -5,9 +5,9 @@
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
-		"build": "ng build --prod",
+		"build": "ng build --configuration production",
 		"build:dev": "ng build",
-		"build:pages": "ng build --prod --output-path docs --base-href UrlCheckerDashboard",
+		"build:pages": "ng build --configuration production --output-path docs --base-href UrlCheckerDashboard",
 		"test": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
 		"test:dev": "ng test",
 		"lint": "ng lint",
@@ -33,8 +33,8 @@
 		"zone.js": "~0.11.4"
 	},
 	"devDependencies": {
-		"@angular-devkit/build-angular": "~12.0.1",
-		"@angular/cli": "^12.0.1",
+		"@angular-devkit/build-angular": "~12.1.1",
+		"@angular/cli": "^12.1.1",
 		"@angular/compiler-cli": "^12.0.1",
 		"@angular/language-service": "^12.0.1",
 		"@types/jasmine": "~3.6.0",
