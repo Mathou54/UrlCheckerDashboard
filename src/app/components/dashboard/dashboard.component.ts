@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit() {
 		this.controls = this.fb.group({
-			'refreshTime': [10, Validators.min(1)]
+			refreshTime: [10, Validators.min(1)]
 		});
 
 		this.services = of([]);

@@ -7,20 +7,18 @@ describe('ServiceService', () => {
 
 
 	const mockHttp = {
-		get: function () {
-			return null;
-		}
+		get: () => null
+
 	};
 
 	beforeEach(() => {
 
 		spyOn(mockHttp, 'get').and.returnValue({
-			catch: function () {
-				return {
-					map: function () {
-					}
-				};
+			catch: () => {
+				map : () => {
+				}
 			}
+
 		});
 
 		TestBed.configureTestingModule({
