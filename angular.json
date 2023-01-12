@@ -110,7 +110,6 @@
 			}
 		}
 	},
-	"defaultProject": "url-checker-dashboard",
 	"schematics": {
 		"@schematics/angular:component": {
 			"prefix": "app",

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {Service} from '../../model/service';
 import {ServiceService} from '../../services/service.service';
@@ -14,12 +14,12 @@ export class DashboardComponent implements OnInit {
 
 	services: Observable<Service[]>;
 
-	controls: FormGroup;
+	controls: UntypedFormGroup;
 
 	refreshCount: number;
 
-	constructor(private fb: FormBuilder,
-				private service: ServiceService) {
+	constructor(private fb: UntypedFormBuilder,
+	            private service: ServiceService) {
 	}
 
 	ngOnInit() {
