@@ -13,9 +13,9 @@ describe('DashboardComponent', () => {
 	beforeEach(waitForAsync(() => {
 
 		const mockServiceService = {
-			updateStatus: function () {
+			updateStatus: () => {
 			},
-			get: function () {
+			get: () => {
 			}
 		};
 		spyOn(mockServiceService, 'updateStatus');
